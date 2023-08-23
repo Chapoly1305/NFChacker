@@ -1,15 +1,25 @@
 # NFChacker
 
-[NFC基础](https://xuanxuanblingbling.github.io/nfc/2018/07/29/NFC/)  
+[NFC基础](https://xuanxuanblingbling.github.io/nfc/2018/07/29/NFC/)
 
-[Android HCE开发](https://xuanxuanblingbling.github.io/ctf/android/2018/07/29/AndriodHCE/)   
+[Android HCE开发](https://xuanxuanblingbling.github.io/ctf/android/2018/07/29/AndriodHCE/)
 
 对于NFC的攻击可以分为攻击卡与攻击读卡器：
 
 - 攻击卡就是用android模拟读卡器，给卡发送payload
 - 攻击读卡器就是用android模拟卡，给读卡器发送payload
 
-目前只通过了android的HCE功能实现了模拟卡，即攻击读卡器  
+目前只通过了android的HCE功能实现了模拟卡，即攻击读卡器
+
+
+## 环境要求
+
+1. 手机已经Root 并安装了Exposed 框架。
+2. 安装 Xposed 插件 NFC Card-Emulation Catch-All Routing。下载地址请参考其中之一：
+
+   * 原作者 GitHub： https://github.com/johnzweng/XposedModifyAidRouting
+   * Fork 防丢：https://github.com/Chapoly1305/XposedModifyAidRouting
+   * Wayback Machine 缓存https://web.archive.org/web/https://repo.xposed.info/module/at.zweng.xposed.modifyaidrouting
 
 ## 代码结构
 
@@ -122,8 +132,6 @@ assets目录下的初始HCE实例文件，最终会被释放到/sdcard/NFChacker
 	"匹配前缀-变量序号-变量起始位置-变量长度":"返回前缀-变量序号-变量初始值-返回后缀"
 }
 ```
-
-
 
 ### 匹配前缀
 
