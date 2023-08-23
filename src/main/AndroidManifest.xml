@@ -2,11 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xuanxuan.NFChacker">
 
-    <uses-permission android:name="android.permission.NFC" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -22,13 +17,17 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.xuanxuan.NFChacker.OtherView.LogActivity" />
+
+        <activity android:name="com.xuanxuan.NFChacker.OtherView.EditActivity" />
+        <activity android:name="com.xuanxuan.NFChacker.OtherView.RuleActivity"></activity>
+
         <service
             android:name="com.xuanxuan.NFChacker.PaymentServiceHost"
             android:exported="true"
             android:permission="android.permission.BIND_NFC_SERVICE">
             <intent-filter>
                 <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
@@ -36,10 +35,16 @@
                 android:name="android.nfc.cardemulation.host_apdu_service"
                 android:resource="@xml/host_aid_list" />
         </service>
-
-        <activity android:name="com.xuanxuan.NFChacker.OtherView.LogActivity" />
-        <activity android:name="com.xuanxuan.NFChacker.OtherView.EditActivity" />
-        <activity android:name="com.xuanxuan.NFChacker.OtherView.RuleActivity"></activity>
     </application>
+
+    <uses-feature
+        android:name="android.hardware.nfc.hce"
+        android:required="true" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>
